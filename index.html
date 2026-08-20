@@ -153,29 +153,34 @@
       <div class="container is-max-desktop">
         <div class="has-text-centered mb-6">
           <p class="eyebrow">Evaluation</p>
-          <h2 class="section-title">Cleaner retargeting on 308 canonicalized motion pairs</h2>
+          <h2 class="section-title">Leading learning-based results on 308 canonicalized motion pairs</h2>
           <p>Mixamo GT benchmark in the ReFM-native, height-normalized 65-joint space.</p>
         </div>
         <div class="columns is-variable is-4">
-          <div class="column"><article class="card results-card"><div class="card-content"><p class="metric">0.1285</p><p class="metric-label">Penetration ↓</p><p class="result-note mt-3">Lowest penetration among the evaluated retargeting methods for ReFM-copy.</p></div></article></div>
-          <div class="column"><article class="card results-card"><div class="card-content"><p class="metric">6.60%</p><p class="metric-label">pct_gain ↑</p><p class="result-note mt-3">Best relative penetration improvement against the copy baseline.</p></div></article></div>
-          <div class="column"><article class="card results-card"><div class="card-content"><p class="metric">0.9963</p><p class="metric-label">Semantic similarity ↑</p><p class="result-note mt-3">High semantic consistency after geometry-aware refinement.</p></div></article></div>
+          <div class="column"><article class="card results-card"><div class="card-content"><p class="metric">0.129</p><p class="metric-label">Penetration ↓</p><p class="result-note mt-3">Best penetration among learning-based retargeting methods.</p></div></article></div>
+          <div class="column"><article class="card results-card"><div class="card-content"><p class="metric">0.145</p><p class="metric-label">MSE ↓</p><p class="result-note mt-3">Best motion reconstruction error among learning-based methods.</p></div></article></div>
+          <div class="column"><article class="card results-card"><div class="card-content"><p class="metric">0.998</p><p class="metric-label">Semantic similarity ↑</p><p class="result-note mt-3">Best semantic similarity, tied with STaR, among learning-based methods.</p></div></article></div>
         </div>
         <div class="table-wrap mt-6">
           <table class="table is-fullwidth is-hoverable">
-            <thead><tr><th>Method</th><th>Pen ↓</th><th>Curv ↓</th><th>MSE ↓</th><th>sem_sim ↑</th><th>pct_gain ↑</th></tr></thead>
+            <thead><tr><th>Method</th><th>Pen ↓</th><th>Sem<sub>sim</sub> ↑</th><th>Curv ↓</th><th>MSE ↓</th></tr></thead>
             <tbody>
-              <tr><td>copy <span class="tag method-tag">baseline</span></td><td>0.1389</td><td>0.6571</td><td>0.1309</td><td>0.9990</td><td>—</td></tr>
-              <tr class="refm-row"><td>ReFM-copy</td><td><strong>0.1285</strong></td><td>0.7315</td><td>0.1448</td><td>0.9963</td><td><strong>6.60%</strong></td></tr>
-              <tr><td>ReFM-HIK</td><td>0.1288</td><td>0.7177</td><td>0.1467</td><td>0.9977</td><td>6.62%</td></tr>
-              <tr><td>STaR-Ret</td><td>0.1352</td><td>0.7046</td><td>0.1468</td><td>0.9985</td><td>2.47%</td></tr>
-              <tr><td>MeshRet-Ret</td><td>0.1350</td><td>0.7101</td><td>0.1656</td><td>0.9802</td><td>2.59%</td></tr>
-              <tr><td>HumanIK-Ret</td><td>0.1392</td><td><strong>0.6567</strong></td><td><strong>0.1298</strong></td><td>0.9987</td><td>−0.22%</td></tr>
-              <tr><td>SAN-Ret</td><td>0.1339</td><td>1.4941</td><td>0.2110</td><td>0.9529</td><td>−0.97%</td></tr>
+              <tr><td colspan="5"><em>Reference motions</em></td></tr>
+              <tr><td>Ground truth</td><td>0.140</td><td>—</td><td>0.675</td><td>—</td></tr>
+              <tr><td>Naive copy <span class="tag method-tag">baseline</span></td><td>0.139</td><td>0.999</td><td>0.657</td><td>0.131</td></tr>
+              <tr><td>HumanIK</td><td>0.139</td><td>0.999</td><td>0.657</td><td>0.130</td></tr>
+              <tr><td colspan="5"><em>Skinned retargeting methods</em></td></tr>
+              <tr><td>STaR</td><td>0.135</td><td><strong>0.998</strong></td><td><strong>0.705</strong></td><td>0.147</td></tr>
+              <tr><td>MeshRet</td><td>0.135</td><td>0.980</td><td>0.710</td><td>0.166</td></tr>
+              <tr><td colspan="5"><em>Skin-agnostic retargeting methods</em></td></tr>
+              <tr><td>SAN</td><td>0.134</td><td>0.953</td><td>1.494</td><td>0.211</td></tr>
+              <tr><td colspan="5"><em>Ours: skin-agnostic refinement</em></td></tr>
+              <tr class="refm-row"><td>ReFM-copy</td><td><strong>0.129</strong></td><td>0.996</td><td>0.729</td><td><strong>0.145</strong></td></tr>
+              <tr class="refm-row"><td>ReFM-HumanIK</td><td><strong>0.129</strong></td><td><strong>0.998</strong></td><td>0.718</td><td>0.146</td></tr>
             </tbody>
           </table>
         </div>
-        <p class="is-size-7 has-text-grey">Pen: self-penetration; Curv: temporal curvature; MSE: motion reconstruction error; sem_sim: semantic similarity. Lower is better for Pen, Curv, and MSE; higher is better for sem_sim and pct_gain.</p>
+        <p class="is-size-7 has-text-grey">Pen: self-penetration; Sem<sub>sim</sub>: semantic similarity; Curv: temporal curvature; MSE: motion reconstruction error. Lower is better for Pen, Curv, and MSE; higher is better for Sem<sub>sim</sub>. Bold marks the best result among learning-based retargeting methods.</p>
       </div>
     </section>
 
