@@ -99,17 +99,19 @@
       </div>
     </section>
 
-    <section class="section pt-2">
-      <div class="container is-max-desktop">
-        <div class="columns is-centered">
-          <div class="column is-four-fifths">
-            <p class="eyebrow">Overview</p>
-            <h2 class="section-title">Motion should transfer, not collide.</h2>
-            <p class="abstract">ReFM retargets motion from a source character to a target character using only source motion and skeleton information, together with the target skeleton and mesh. It requires neither a source mesh nor ground-truth target motion. ReFM first canonicalizes global yaw, then preserves character-invariant motion meaning with a contrastive semantic encoder, and finally refines an initial copy retarget through a differentiable energy that balances self-penetration, semantic drift, temporal smoothness, and fidelity to the input motion.</p>
-          </div>
-        </div>
+<section class="section pt-2">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <p class="eyebrow">Overview</p>
+        <h2 class="section-title">Retargeting should refine, not regress.</h2>
+        <p class="abstract">
+          ReFM reformulates motion retargeting as a progressive refinement process inspired by how animators work: starting from an initial retargeted motion, it iteratively corrects target-specific artifacts rather than directly regressing a final motion in one shot. Throughout refinement, preserving the semantic intent of the source motion remains the primary objective. A cross-character semantic encoder provides explicit semantic guidance, while target-aware physical and temporal constraints reduce self-penetration and motion artifacts with minimal modification to the initialization. ReFM requires only the source motion and skeleton together with the target skeleton and mesh, without requiring a source mesh or ground-truth target motion.
+        </p>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
 
     <section class="section">
       <div class="container is-max-desktop">
